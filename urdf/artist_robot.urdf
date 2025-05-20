@@ -108,6 +108,26 @@
     </inertial>
   </link>
 
+  <link name="lift_arm">
+    <visual>
+        <geometry>
+            <cylinder radius="0.05" length="0.1"/> <!-- Цилиндр 3 см радиус, 50 см длина -->
+        </geometry>
+        <material name="silver">
+            <color rgba="0.8 0.8 0.8 1"/>
+        </material>
+    </visual>
+    <collision>
+        <geometry>
+            <cylinder radius="0.05" length="0.1"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
   <!-- Звено: Платформа кисти -->
   <link name="brush_platform">
     <visual>
@@ -234,11 +254,17 @@
     <axis xyz="0 0 1"/> <!-- Вращение вокруг локальной Y -->
   </joint>
 
-  <!-- Платформа кисти к корпусу (fixed joint) -->
-  <joint name="base_to_brush_platform" type="fixed">
+  <joint name="base_to_lift_arm" type="prismatic">
     <parent link="base_link"/>
-    <child link="brush_platform"/>
-    <origin xyz="0 0 0.06"/> <!-- На верхней части корпуса -->
+    <child link="lift_arm"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/> <!-- Движение по Z -->
+    <limit lower="0" upper="0.5" effort="20" velocity="0.2"/> <!-- 0–50 см -->
+  </joint>
+  <joint name="lift_arm_to_brush_platform" type="fixed">
+      <parent link="lift_arm"/>
+      <child link="brush_platform"/>
+      <origin xyz="0 0 0.05"/>
   </joint>
 
   <!-- Рычаг кисти к платформе (planar joint) -->
