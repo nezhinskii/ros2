@@ -1,0 +1,9 @@
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/uninstall.dir
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/artist_robot_uninstall.dir
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/test.dir
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/edit_cache.dir
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/rebuild_cache.dir
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/list_install_components.dir
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/install.dir
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/install/local.dir
+/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot/CMakeFiles/install/strip.dir

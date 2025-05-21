@@ -1,0 +1,6 @@
+Invoking command in '/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ymayma/ros2_ws/src/artist_robot -DCMAKE_INSTALL_PREFIX=/home/ymayma/ros2_ws/src/artist_robot/install/artist_robot
+Invoked command in '/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ymayma/ros2_ws/src/artist_robot -DCMAKE_INSTALL_PREFIX=/home/ymayma/ros2_ws/src/artist_robot/install/artist_robot
+Invoking command in '/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ymayma/ros2_ws/src/artist_robot/build/artist_robot -- -j4 -l4
+Invoked command in '/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ymayma/ros2_ws/src/artist_robot/build/artist_robot -- -j4 -l4
+Invoking command in '/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ymayma/ros2_ws/src/artist_robot/build/artist_robot
+Invoked command in '/home/ymayma/ros2_ws/src/artist_robot/build/artist_robot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ymayma/ros2_ws/src/artist_robot/build/artist_robot

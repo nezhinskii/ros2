@@ -5,7 +5,7 @@
   <link name="base_link">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/base_link.dae"/>
+        <box size="0.5 0.3 0.1"/> <!-- Длина 0.5 м, ширина 0.3 м, высота 0.1 м -->
       </geometry>
       <material name="blue">
         <color rgba="0 0 1 1"/> <!-- Синий цвет -->
@@ -40,9 +40,11 @@
   <link name="wheel_1">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/wheel.dae"/>
+        <cylinder radius="0.05" length="0.02"/> <!-- Радиус 5 см, толщина 2 см -->
       </geometry>
-      <!-- <material name="black"/> -->
+      <material name="black">
+        <color rgba="0 0 0 1"/> <!-- Черный цвет -->
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -57,9 +59,9 @@
   <link name="wheel_2">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/wheel.dae"/>
+        <cylinder radius="0.05" length="0.02"/>
       </geometry>
-      <!-- <material name="black"/> -->
+      <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -74,9 +76,9 @@
   <link name="wheel_3">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/wheel.dae"/>
+        <cylinder radius="0.05" length="0.02"/>
       </geometry>
-      <!-- <material name="black"/> -->
+      <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -91,9 +93,9 @@
   <link name="wheel_4">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/wheel.dae"/>
+        <cylinder radius="0.05" length="0.02"/>
       </geometry>
-      <!-- <material name="black"/> -->
+      <material name="black"/>
     </visual>
     <collision>
       <geometry>
@@ -108,16 +110,16 @@
 
   <link name="lift_arm">
     <visual>
-      <geometry>
-        <mesh filename="package://artist_robot/urdf/lift_arm.dae"/>
-      </geometry>
-      <!-- <material name="silver">
-        <color rgba="0.8 0.8 0.8 1"/>
-      </material> -->
+        <geometry>
+            <cylinder radius="0.03" length="0.5"/> <!-- Цилиндр 3 см радиус, 50 см длина -->
+        </geometry>
+        <material name="silver">
+            <color rgba="0.8 0.8 0.8 1"/>
+        </material>
     </visual>
     <collision>
         <geometry>
-            <cylinder radius="0.05" length="0.1"/>
+            <cylinder radius="0.03" length="0.5"/>
         </geometry>
     </collision>
     <inertial>
@@ -130,11 +132,11 @@
   <link name="brush_platform">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/brush_platform.dae"/>
+        <box size="0.2 0.2 0.02"/> <!-- Платформа 20x20x2 см -->
       </geometry>
-      <!-- <material name="red">
-        <color rgba="1 0 0 1"/>
-      </material> -->
+      <material name="red">
+        <color rgba="1 0 0 1"/> <!-- Красный цвет -->
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -151,11 +153,11 @@
   <link name="brush_arm">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/brush_arm.dae"/>
+        <box size="0.05 0.05 0.1"/> <!-- Рычаг 5x5x10 см -->
       </geometry>
-      <!-- <material name="green">
-        <color rgba="0 1 0 1"/>
-      </material> -->
+      <material name="green">
+        <color rgba="0 1 0 1"/> <!-- Зеленый цвет -->
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -172,11 +174,11 @@
   <link name="brush_tip">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/brush_tip.dae"/>
+        <cylinder radius="0.01" length="0.05"/> <!-- Кончик 1 см радиус, 5 см длина -->
       </geometry>
-      <!-- <material name="yellow">
-        <color rgba="1 1 0 1"/>
-      </material> -->
+      <material name="yellow">
+        <color rgba="1 1 0 1"/> <!-- Желтый цвет -->
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -193,9 +195,9 @@
   <link name="brush_tip_extension">
     <visual>
       <geometry>
-        <mesh filename="package://artist_robot/urdf/brush_tip_extension.dae"/>
+        <cylinder radius="0.008" length="0.05"/> <!-- Чуть меньше, 0.8 см радиус -->
       </geometry>
-      <!-- <material name="yellow"/> -->
+      <material name="yellow"/>
     </visual>
     <collision>
       <geometry>
@@ -255,14 +257,14 @@
   <joint name="base_to_lift_arm" type="prismatic">
     <parent link="base_link"/>
     <child link="lift_arm"/>
-    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <origin xyz="0 0 0.06" rpy="0 0 0"/>
     <axis xyz="0 0 1"/> <!-- Движение по Z -->
     <limit lower="0" upper="0.5" effort="20" velocity="0.2"/> <!-- 0–50 см -->
   </joint>
   <joint name="lift_arm_to_brush_platform" type="fixed">
       <parent link="lift_arm"/>
       <child link="brush_platform"/>
-      <origin xyz="0 0 0.05"/>
+      <origin xyz="0 0 0.5"/> <!-- На вершине цилиндра -->
   </joint>
 
   <!-- Рычаг кисти к платформе (planar joint) -->
@@ -289,7 +291,7 @@
     <child link="brush_tip_extension"/>
     <origin xyz="0 0 0.025"/> <!-- Смещение на половину длины brush_tip -->
     <axis xyz="0 0 1"/> <!-- Выдвижение по оси Z -->
-    <limit lower="0" upper="0.11" effort="10" velocity="0.1"/> <!-- Выдвижение до 5 см -->
+    <limit lower="0" upper="0.1" effort="10" velocity="0.1"/> <!-- Выдвижение до 5 см -->
   </joint>
 
 </robot>
