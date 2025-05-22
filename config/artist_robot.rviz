@@ -91,6 +91,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        lift_arm:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         wheel_1:
           Alpha: 1
           Show Axes: false
@@ -209,5 +214,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 365
-  Y: 61
+  X: 460
+  Y: 371

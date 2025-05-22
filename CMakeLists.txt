@@ -24,6 +24,7 @@ if(BUILD_TESTING)
 endif()
 
 install(DIRECTORY
+  worlds
   config
   urdf
   launch
